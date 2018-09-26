@@ -1,0 +1,28 @@
+server:
+  port: 8000
+spring:
+  redis:
+    host: 10.8.5.102
+    port: 6379
+    password: ${RedisPassword}
+    pool:
+      maxTotal: 200
+      maxIdle: 50
+      maxWaitMillis: 15000
+      testOnBorrow: true
+      testOnReturn: true
+      testWhileIdle: true
+      minEvictableIdleTimeMillis: 60000
+      timeBetweenEvictionRunsMillis: 3000
+      numTestsPerEvictionRun: -1
+redisMQ:
+  maxErrorCount: 3                                # redisMQ对应的业务最大的异常次数
+  consumer:
+    topicMainSwitch: false                         # redisMQ消费者自定义开关启用的总开关
+    switchList:                                   # redisMQ消费者各个自定义开关
+      - topic: channels
+        topicSwitch: true
+      - topic: channel2
+        topicSwitch: false
+      - topic: apsToolsChannels
+        topicSwitch: true
