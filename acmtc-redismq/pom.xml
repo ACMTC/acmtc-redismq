@@ -11,20 +11,20 @@
 	<name>acmtc-redismq</name>
 	<description>Easy to use redis as mq</description>
 	<url>https://github.com/ACMTC/acmtc-redismq</url>
-
+	<!-- 配置license内容 -->
 	<licenses>
 		<license>
 			<name>The Apache License, Version 2.0</name>
 			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
 		</license>
 	</licenses>
-
+	<!-- 配置scm -->
 	<scm>
 		<connection>scm:git:git@github.com:ACMTC/acmtc-redismq</connection>
 		<developerConnection>scm:git:git@github.com:ACMTC/acmtc-redismq</developerConnection>
 		<url>scm:git:git@github.com:ACMTC/acmtc-redismq</url>
 	</scm>
-	
+	<!-- 配置开发者 -->
 	<developers>
 		<developer>
 			<name>wencst</name>
@@ -93,6 +93,7 @@
 				<artifactId>maven-war-plugin</artifactId>
 				<version>2.1.1</version>
 			</plugin>
+			<!-- maven编译配置 -->
 			<plugin>
 				<artifactId>maven-jar-plugin</artifactId>
 				<version>2.3.2</version>
@@ -106,6 +107,7 @@
 					</execution>
 				</executions>
 			</plugin>
+			<!-- maven编译配置 -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -115,6 +117,7 @@
 					<target>${jdk.version}</target>
 				</configuration>
 			</plugin>
+			<!-- 创建javadoc -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>
@@ -122,9 +125,10 @@
 				<configuration>
 					<!-- 解决 java8 下发布到 maven 中心库时，生成 doc 的异常 -->
 					<additionalparam>-Xdoclint:none</additionalparam>
-					<encoding>${project.build.sourceEncoding}</encoding>
-					<outputDirectory>${basedir}</outputDirectory>
-					<reportOutputDirectory>${basedir}</reportOutputDirectory>
+                    <aggregate>true</aggregate>
+                    <charset>${project.build.sourceEncoding}</charset>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+					<docencoding>${project.build.sourceEncoding}</docencoding>
 				</configuration>
 			</plugin>
 		</plugins>
@@ -136,7 +140,7 @@
 			<id>release</id>
 			<build>
 				<plugins>
-					<!-- GPG -->
+					<!-- GPG 加密 -->
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-gpg-plugin</artifactId>
@@ -152,6 +156,7 @@
 					</plugin>
 				</plugins>
 			</build>
+			<!-- 分布管理和认证  -->
 			<distributionManagement>
 				<snapshotRepository>
 					<id>nexus-release</id>
