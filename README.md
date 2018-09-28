@@ -25,7 +25,7 @@ acmtc-redismq is an open source solution suite for easily using redis as MQ.
 * pom.xml
 ```
 	<dependency>
-		<groupId>com.acmtc</groupId>
+	    <groupId>com.acmtc</groupId>
 	    <artifactId>acmtc-redismq</artifactId>
 	    <version>1.0.0-RELEASE</version>
 	</dependency>
