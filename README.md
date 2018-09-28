@@ -2,6 +2,8 @@
 
 [![License](https://img.shields.io/badge/license-Apache%202-4EB1BA.svg)](https://www.apache.org/licenses/LICENSE-2.0.html)
 
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/ACMTC/acmtc-redismq/badge.svg)](https://maven-badges.herokuapp.com/maven-central/ACMTC/acmtc-redismq)
+
 ## Introduction
 
 acmtc-redismq is an open source solution suite for easily using redis as MQ.
