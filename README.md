@@ -17,7 +17,7 @@ acmtc-redismq is an open source solution suite for easily using redis as MQ.
 
 ### Enviroment
 
-* JDK 1.7+
+* JDK 1.9+
 * Spring Boot 1.5+
 * Redis
 
