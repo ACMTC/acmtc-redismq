@@ -37,7 +37,7 @@ and use spring boot redis dependency as default.
 redisMQ:
   maxErrorCount: 3                                # redisMQ consumer error count, greater than it will be discarded.
   consumer:
-    topicMainSwitch: false                         # redisMQ customize whether all consuming listener will be opened,false for all opened,true for custuming below,default false
+    topicMainSwitch: false                        # redisMQ customize whether all consuming listener will be opened,false for all opened,true for custuming below,default false
     switchList:                                   # redisMQ specific consumers customize
       - topic: channels                           # specific consumer name, same topic as annotation used in @RedisConsumerAnnotation
         topicSwitch: true                         # true for open listener, default false
