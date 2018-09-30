@@ -15,10 +15,11 @@ spring:
       minEvictableIdleTimeMillis: 60000
       timeBetweenEvictionRunsMillis: 3000
       numTestsPerEvictionRun: -1
-redisMQ:
+redis-mq:
+  initial: true                                   # redisMQ服务是否需要在项目启动后执行初始化队列冗余数据处理
   maxErrorCount: 3                                # redisMQ对应的业务最大的异常次数
   consumer:
-    topicMainSwitch: false                         # redisMQ消费者自定义开关启用的总开关
+    topicMainSwitch: false                        # redisMQ消费者自定义开关启用的总开关
     switchList:                                   # redisMQ消费者各个自定义开关
       - topic: channels
         topicSwitch: true

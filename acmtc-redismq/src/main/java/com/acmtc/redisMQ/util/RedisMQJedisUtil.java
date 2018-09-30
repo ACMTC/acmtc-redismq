@@ -55,6 +55,27 @@ public class RedisMQJedisUtil {
     }
 
     /**
+     * 获取指定key的列表数据
+     * @param key
+     * @return
+     */
+    public List<String> getList(final String key){
+        return redisTemplate.execute(new RedisCallback<List<String>>() {
+
+            @Override
+            public List<String> doInRedis(RedisConnection connection) throws DataAccessException {
+                RedisSerializer<String> serializer = redisTemplate.getStringSerializer();
+                List<byte[]> list = connection.lRange(serializer.serialize(key), 0, -1);
+                List<String> result = new ArrayList<String>();
+                for (byte[] bytes : list) {
+                    result.add(String.valueOf(serializer.deserialize(bytes)));
+                }
+                return result;
+            }
+        });
+    }
+
+    /**
      * @Author paul
      * @Description 推送消息队列并发布通知消费者消费该消息
      * @Date 11:24 2018/9/6

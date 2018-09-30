@@ -15,12 +15,22 @@ import java.util.List;
  */
 @Component
 @PropertySource(value = "classpath:application.yml", ignoreResourceNotFound = true)
-@ConfigurationProperties(prefix = "redisMQ")
+@ConfigurationProperties(prefix = "redis-mq")
 public class RedisMQConfig {
+
+    private boolean initial = false;
 
     private long maxErrorCount = 3;
 
     private Consumer consumer;
+
+    public boolean isInitial() {
+        return this.initial;
+    }
+
+    public void setInitial(boolean initial) {
+        this.initial = initial;
+    }
 
     public long getMaxErrorCount() {
         return maxErrorCount;
