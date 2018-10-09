@@ -22,6 +22,8 @@ public class RedisMQConfig {
 
     private long maxErrorCount = 3;
 
+    private Config config;
+
     private Consumer consumer;
 
     public boolean isInitial() {
@@ -40,12 +42,73 @@ public class RedisMQConfig {
         this.maxErrorCount = maxErrorCount;
     }
 
+    public Config getConfig() {
+        return this.config;
+    }
+
+    public void setConfig(Config config) {
+        this.config = config;
+    }
+
     public Consumer getConsumer() {
         return consumer;
     }
 
     public void setConsumer(Consumer consumer) {
         this.consumer = consumer;
+    }
+
+    public static class Config {
+
+        private int corePoolSize = 1;
+
+        private int maxPoolSize = 1;
+
+        private int keepAliveSeconds = 60;
+
+        private int queueCapacity = 1;
+
+        private boolean allowCoreThreadTimeOut = false;
+
+        public int getCorePoolSize() {
+            return this.corePoolSize;
+        }
+
+        public void setCorePoolSize(int corePoolSize) {
+            this.corePoolSize = corePoolSize;
+        }
+
+        public int getMaxPoolSize() {
+            return this.maxPoolSize;
+        }
+
+        public void setMaxPoolSize(int maxPoolSize) {
+            this.maxPoolSize = maxPoolSize;
+        }
+
+        public int getKeepAliveSeconds() {
+            return this.keepAliveSeconds;
+        }
+
+        public void setKeepAliveSeconds(int keepAliveSeconds) {
+            this.keepAliveSeconds = keepAliveSeconds;
+        }
+
+        public int getQueueCapacity() {
+            return this.queueCapacity;
+        }
+
+        public void setQueueCapacity(int queueCapacity) {
+            this.queueCapacity = queueCapacity;
+        }
+
+        public boolean isAllowCoreThreadTimeOut() {
+            return this.allowCoreThreadTimeOut;
+        }
+
+        public void setAllowCoreThreadTimeOut(boolean allowCoreThreadTimeOut) {
+            this.allowCoreThreadTimeOut = allowCoreThreadTimeOut;
+        }
     }
 
     public static class Consumer {
