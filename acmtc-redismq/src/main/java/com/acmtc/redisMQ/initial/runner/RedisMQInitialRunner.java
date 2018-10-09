@@ -1,9 +1,9 @@
-package com.acmtc.redisMQ.runner;
+package com.acmtc.redisMQ.initial.runner;
 
 import com.acmtc.redisMQ.config.RedisAnnotationProcessor;
 import com.acmtc.redisMQ.config.RedisMQConfig;
-import com.acmtc.redisMQ.pool.RedisMQInitialPool;
-import com.acmtc.redisMQ.thread.RedisMQInitialThread;
+import com.acmtc.redisMQ.initial.pool.RedisMQInitialPool;
+import com.acmtc.redisMQ.initial.thread.RedisMQInitialThread;
 import com.acmtc.redisMQ.util.RedisMQJedisUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

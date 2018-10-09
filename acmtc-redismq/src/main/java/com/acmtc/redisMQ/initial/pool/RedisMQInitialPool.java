@@ -1,4 +1,4 @@
-package com.acmtc.redisMQ.pool;
+package com.acmtc.redisMQ.initial.pool;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.LinkedBlockingQueue;

@@ -1,4 +1,4 @@
-package com.acmtc.redisMQ.thread;
+package com.acmtc.redisMQ.initial.thread;
 
 import com.acmtc.redisMQ.config.RedisConsumer;
 import com.acmtc.redisMQ.config.RedisMQKey;
