@@ -39,6 +39,12 @@ and use spring boot redis dependency as default.
 ```
 redisMQ:
   maxErrorCount: 3                                # redisMQ consumer error count, greater than it will be discarded.
+  config:
+      corePoolSize: 10                            # Set the redisMQ consumer ThreadPoolExecutor's core pool size.
+      maxPoolSize: 100                            # Set the redisMQ consumer ThreadPoolExecutor's maximum pool size.
+      keepAliveSeconds: 120                       # Set the redisMQ consumer ThreadPoolExecutor's keep-alive seconds.
+      queueCapacity: 2                            # Set the capacity for the redisMQ consumer ThreadPoolExecutor's BlockingQueue.
+      allowCoreThreadTimeOut: false               # Specify whether to allow core threads to time out.
   consumer:
     topicMainSwitch: false                        # redisMQ customize whether all consuming listener will be opened,false for all opened,true for custuming below,default false
     switchList:                                   # redisMQ specific consumers customize

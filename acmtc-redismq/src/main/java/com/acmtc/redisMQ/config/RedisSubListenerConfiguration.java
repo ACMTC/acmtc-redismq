@@ -1,6 +1,5 @@
 package com.acmtc.redisMQ.config;
 
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
@@ -73,7 +72,7 @@ public class RedisSubListenerConfiguration {
             }
         }
 
-        return container;
+         return container;
     }
 
 }

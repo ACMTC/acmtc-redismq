@@ -1,7 +1,6 @@
 package com.acmtc.redisMQ.initial.runner;
 
 import com.acmtc.redisMQ.config.RedisAnnotationProcessor;
-import com.acmtc.redisMQ.config.RedisMQConfig;
 import com.acmtc.redisMQ.initial.pool.RedisMQInitialPool;
 import com.acmtc.redisMQ.initial.thread.RedisMQInitialThread;
 import com.acmtc.redisMQ.util.RedisMQJedisUtil;
@@ -26,24 +25,20 @@ import java.util.concurrent.ExecutorService;
 public class RedisMQInitialRunner implements ApplicationRunner {
     private static final Logger log = LoggerFactory.getLogger(RedisMQInitialRunner.class);
     @Autowired
-    private RedisMQConfig redisMQConfig;
-    @Autowired
     private RedisMQJedisUtil redisMQJedisUtil;
 
     @Override
     public void run (ApplicationArguments var) {
-        if (redisMQConfig.isInitial()) {
-            log.info("RedisMQInitialRunner start!");
-            Map<String,Object> maps = RedisAnnotationProcessor.EVENTCODESERVICEBEANMAP;
-            if (null != maps && maps.size() > 0) {
-                for (Object consumer : maps.values()) {
-                    ExecutorService pool = RedisMQInitialPool.pool;
-                    RedisMQInitialThread thread = new RedisMQInitialThread(consumer, redisMQJedisUtil);
-                    pool.submit(thread);
-                }
+        log.info("RedisMQInitialRunner start!");
+        Map<String,Object> maps = RedisAnnotationProcessor.EVENTCODESERVICEBEANMAP;
+        if (null != maps && maps.size() > 0) {
+            for (Object consumer : maps.values()) {
+                ExecutorService pool = RedisMQInitialPool.pool;
+                RedisMQInitialThread thread = new RedisMQInitialThread(consumer, redisMQJedisUtil);
+                pool.submit(thread);
             }
-            log.info("RedisMQInitialRunner end!");
         }
+        log.info("RedisMQInitialRunner end!");
     }
 
 }

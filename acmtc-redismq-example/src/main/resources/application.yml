@@ -16,13 +16,12 @@ spring:
       timeBetweenEvictionRunsMillis: 3000
       numTestsPerEvictionRun: -1
 redis-mq:
-  initial: true                                   # redisMQ服务是否需要在项目启动后执行初始化队列冗余数据处理
   maxErrorCount: 3                                # redisMQ对应的业务最大的异常次数
   config:
-    corePoolSize: 10
-    maxPoolSize: 100
-    keepAliveSeconds: 120
-    queueCapacity: 2
+    corePoolSize: 10                              # consumer容器线程池的核心线程数
+    maxPoolSize: 100                              # consumer容器线程池的最大线程数
+    keepAliveSeconds: 120                         # consumer容器线程池的线程池维护线程所允许的空闲时间
+    queueCapacity: 2                              # consumer容器线程池的队列最大长度
     allowCoreThreadTimeOut: false
   consumer:
     topicMainSwitch: false                        # redisMQ消费者自定义开关启用的总开关
