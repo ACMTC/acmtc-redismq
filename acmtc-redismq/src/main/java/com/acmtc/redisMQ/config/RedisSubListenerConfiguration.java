@@ -37,16 +37,19 @@ public class RedisSubListenerConfiguration {
     public ThreadPoolTaskExecutor springSessionRedisMQTaskExecutor () {
         ThreadPoolTaskExecutor springSessionRedisMQTaskExecutor = new ThreadPoolTaskExecutor();
         RedisMQConfig.Config config = redisMQConfig.getConfig();
-        if (config != null) {
+        if (config != null && config.getCorePoolSize() > 1) {
             springSessionRedisMQTaskExecutor.setCorePoolSize(config.getCorePoolSize());
             springSessionRedisMQTaskExecutor.setMaxPoolSize(config.getMaxPoolSize());
             springSessionRedisMQTaskExecutor.setKeepAliveSeconds(config.getKeepAliveSeconds());
             springSessionRedisMQTaskExecutor.setQueueCapacity(config.getQueueCapacity());
             springSessionRedisMQTaskExecutor.setAllowCoreThreadTimeOut(config.isAllowCoreThreadTimeOut());
+            springSessionRedisMQTaskExecutor.setThreadNamePrefix("Spring session redisMQ executor thread: ");
+            springSessionRedisMQTaskExecutor.initialize();
+            return springSessionRedisMQTaskExecutor;
         }
-        springSessionRedisMQTaskExecutor.setThreadNamePrefix("Spring session redisMQ executor thread: ");
-        springSessionRedisMQTaskExecutor.initialize();
-        return springSessionRedisMQTaskExecutor;
+        else {
+            return null;
+        }
     }
 
     @Bean
@@ -72,7 +75,7 @@ public class RedisSubListenerConfiguration {
             }
         }
 
-         return container;
+        return container;
     }
 
 }

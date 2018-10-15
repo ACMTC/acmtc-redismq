@@ -52,11 +52,11 @@ public class RedisMQConfig {
 
         private int corePoolSize = 1;
 
-        private int maxPoolSize = 1;
+        private int maxPoolSize = Integer.MAX_VALUE;
 
         private int keepAliveSeconds = 60;
 
-        private int queueCapacity = 1;
+        private int queueCapacity = Integer.MAX_VALUE;
 
         private boolean allowCoreThreadTimeOut = false;
 
