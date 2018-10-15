@@ -16,9 +16,17 @@ acmtc-redismq is an open source solution suite for easily using redis as MQ.
 * distributed deployment
 * errors handler
 
+### Change Log
+
+- 1.0.0 
+  <br>implementation function of RedisMQ
+- 1.0.1 
+  <br>1、bug-fix：handling the redundant message when starting the service
+  <br>2、import the ThreadPoolTaskExecutor to control the concurrency multithreading of RedisMQ consumer
+
 ## How to use
 
-### Enviroment
+### Environment
 
 * JDK 1.9+
 * Spring Boot 1.5+

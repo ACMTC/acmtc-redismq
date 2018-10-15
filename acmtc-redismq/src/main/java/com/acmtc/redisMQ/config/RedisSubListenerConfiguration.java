@@ -28,25 +28,25 @@ public class RedisSubListenerConfiguration {
     private RedisMQConfig redisMQConfig;
 
     @Autowired
-    @Qualifier("springSessionRedisTaskExecutor")
+    @Qualifier("springSessionRedisMQTaskExecutor")
     public void setRedisTaskExecutor (Executor redisTaskExecutor) {
         this.redisTaskExecutor = redisTaskExecutor;
     }
 
     @Bean
-    public ThreadPoolTaskExecutor springSessionRedisTaskExecutor () {
-        ThreadPoolTaskExecutor springSessionRedisTaskExecutor = new ThreadPoolTaskExecutor();
+    public ThreadPoolTaskExecutor springSessionRedisMQTaskExecutor () {
+        ThreadPoolTaskExecutor springSessionRedisMQTaskExecutor = new ThreadPoolTaskExecutor();
         RedisMQConfig.Config config = redisMQConfig.getConfig();
         if (config != null) {
-            springSessionRedisTaskExecutor.setCorePoolSize(config.getCorePoolSize());
-            springSessionRedisTaskExecutor.setMaxPoolSize(config.getMaxPoolSize());
-            springSessionRedisTaskExecutor.setKeepAliveSeconds(config.getKeepAliveSeconds());
-            springSessionRedisTaskExecutor.setQueueCapacity(config.getQueueCapacity());
-            springSessionRedisTaskExecutor.setAllowCoreThreadTimeOut(config.isAllowCoreThreadTimeOut());
+            springSessionRedisMQTaskExecutor.setCorePoolSize(config.getCorePoolSize());
+            springSessionRedisMQTaskExecutor.setMaxPoolSize(config.getMaxPoolSize());
+            springSessionRedisMQTaskExecutor.setKeepAliveSeconds(config.getKeepAliveSeconds());
+            springSessionRedisMQTaskExecutor.setQueueCapacity(config.getQueueCapacity());
+            springSessionRedisMQTaskExecutor.setAllowCoreThreadTimeOut(config.isAllowCoreThreadTimeOut());
         }
-        springSessionRedisTaskExecutor.setThreadNamePrefix("Spring session redisMQ executor thread: ");
-        springSessionRedisTaskExecutor.initialize();
-        return springSessionRedisTaskExecutor;
+        springSessionRedisMQTaskExecutor.setThreadNamePrefix("Spring session redisMQ executor thread: ");
+        springSessionRedisMQTaskExecutor.initialize();
+        return springSessionRedisMQTaskExecutor;
     }
 
     @Bean
