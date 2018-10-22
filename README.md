@@ -39,14 +39,14 @@ acmtc-redismq is an open source solution suite for easily using redis as MQ.
 	<dependency>
 	    <groupId>com.acmtc</groupId>
 	    <artifactId>acmtc-redismq</artifactId>
-	    <version>1.0.0-RELEASE</version>
+	    <version>1.0.1-RELEASE</version>
 	</dependency>
 ```
 and use spring boot redis dependency as default.
 
 * application.yml
 ```
-redisMQ:
+redis-mq:
   maxErrorCount: 3                                # redisMQ consumer error count, greater than it will be discarded.
   config:
       corePoolSize: 10                            # Set the redisMQ consumer ThreadPoolExecutor's core pool size.
