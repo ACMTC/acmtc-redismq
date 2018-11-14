@@ -3,7 +3,7 @@
 [![License](https://img.shields.io/badge/license-Apache%202-4EB1BA.svg)](https://www.apache.org/licenses/LICENSE-2.0.html)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.acmtc/acmtc-redismq/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.acmtc/acmtc-redismq)
 [![GitHub release](https://img.shields.io/github/release/acmtc/acmtc-redismq.svg)](https://github.com/acmtc/acmtc-redismq/release)
-[![ACMTC Author](https://img.shields.io/badge/ACMTC%20Author-Wencst-ff69b4.svg)](http://www.wencst.com)
+[![ACMTC Author](https://img.shields.io/badge/ACMTC%20Author-Wencst-ff69b4.svg)](https://www.wencst.com)
 [![ACMTC QQ](https://img.shields.io/badge/ACMTC-QQ群-ff69b4.svg)](https://jq.qq.com/?_wv=1027&k=5NBXtHb)
 
 ## Introduction
